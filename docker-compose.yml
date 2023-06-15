@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    command: serve --http=0.0.0.0:8080
+    ports:
+      - 8080:8080
+    volumes:
+      - ./pb_data:/pb_data
+
+  frontend:
+    build: frontend
+    ports:
+      - 5173:5173
