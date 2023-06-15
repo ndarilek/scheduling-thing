@@ -5,5 +5,11 @@ import 'npm:svelte@^3.54.0'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte()]
+  plugins: [svelte()],
+  server: {
+    proxy: {
+      "/_": "http://backend:8090",
+      "/api": "http://backend:8090"
+    }
+  }
 })
